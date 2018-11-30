@@ -42,7 +42,6 @@
           project_name: test
         name: instance  
         image: ubuntu papu :V
-        timeout: 300
         flavor: 2
         state: present
         key_name: llave
