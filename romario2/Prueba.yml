@@ -1,0 +1,49 @@
+---
+- name: start
+  hosts: localhost
+  tasks:
+    - name: create a key
+      os_keypair:
+        name: llave
+        auth:
+          auth_url: http://172.16.5.221/identity/v3
+          username: admin
+          password: secret
+          project_name: admin
+        state: present
+
+
+- name: create a image
+  hosts: localhost
+  tasks:
+    - name: start 2
+      os_image:
+        auth:
+          auth_url: http://172.16.5.221/identity/v3
+          username: admin
+          password: secret
+          project_name: admin
+        name: ubuntu papu :V
+        container_format: bare
+        disk_format: qcow2
+        state: present
+        filename: ./xenial-server-cloudimg-amd64-disk1.img
+        is_public: yes
+
+- name: create a instance
+  hosts: localhost
+  tasks:
+    - name: start 3
+      os_server:
+        auth:
+          auth_url: http://172.16.5.221/identity/v3
+          username: admin
+          password: secret
+          project_name: test
+        name: instance  
+        image: ubuntu papu :V
+        timeout: 300
+        flavor: 2
+        state: present
+        key_name: llave
+        auto_ip: yes
