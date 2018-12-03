@@ -23,7 +23,7 @@
           username: admin
           password: secret
           project_name: admin
-        name: ubuntu-prueba
+        name: ubuntu papu :v
         container_format: bare
         disk_format: qcow2
         state: present
@@ -41,7 +41,7 @@
           password: secret
           project_name: test
         name: instance  
-        image: ubuntu-prueba
+        image: ubuntu papu :v
         flavor: 2
         state: present
         key_name: llave
